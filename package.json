@@ -82,7 +82,8 @@
     "test": "vscode-test",
     "package": "pnpm vsce package --no-dependencies",
     "publish": "pnpm vsce publish --no-dependencies",
-    "minor": "pnpm version minor && pnpm run package"
+    "minor": "pnpm version minor && pnpm run package",
+    "patch": "pnpm version patch && pnpm run package"
   },
   "devDependencies": {
     "@types/vscode": "^1.87.0",
