@@ -1,5 +1,8 @@
 # change log
 
+## 1.0.3 - icon
+- added an icon to the extension
+
 ## 1.0.0 - initial release
 - added the following commands
   - `waypoints.addMarker`: adds a marker to the waypoints file, with the current file, line and column.
