@@ -1,0 +1,2 @@
+/Users/lucasgoyeche/projects/br/labs/catalyst/activations/interactive/get_active_extensions.js:22:16
+/Users/lucasgoyeche/projects/br/labs/catalyst/activations/list/list_activations_request.js:44:1

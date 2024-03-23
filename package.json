@@ -1,0 +1,85 @@
+{
+  "name": "waypoints",
+  "displayName": "waypoints",
+  "description": "Google Maps for VSCode",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.87.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "waypoints.addMarker",
+        "title": "waypoints > add marker"
+      },
+      {
+        "command": "waypoints.viewMap",
+        "title": "waypoints > open map file"
+      },
+      {
+        "command": "waypoints.openTeleporter",
+        "title": "waypoints > open teleporter"
+      },
+      {
+        "command": "waypoints.openWaypoint.1",
+        "title": "waypoints > open waypoint 1"
+      },
+      {
+        "command": "waypoints.openWaypoint.2",
+        "title": "waypoints > open waypoint 2"
+      },
+      {
+        "command": "waypoints.openWaypoint.3",
+        "title": "waypoints > open waypoint 3"
+      },
+      {
+        "command": "waypoints.openWaypoint.4",
+        "title": "waypoints > open waypoint 4"
+      },
+      {
+        "command": "waypoints.openWaypoint.5",
+        "title": "waypoints > open waypoint 5"
+      },
+      {
+        "command": "waypoints.openWaypoint.6",
+        "title": "waypoints > open waypoint 6"
+      },
+      {
+        "command": "waypoints.openWaypoint.7",
+        "title": "waypoints > open waypoint 7"
+      },
+      {
+        "command": "waypoints.openWaypoint.8",
+        "title": "waypoints > open waypoint 8"
+      },
+      {
+        "command": "waypoints.openWaypoint.9",
+        "title": "waypoints > open waypoint 9"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "pnpm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "pnpm run compile && pnpm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.87.0",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "18.x",
+    "@typescript-eslint/eslint-plugin": "^7.0.2",
+    "@typescript-eslint/parser": "^7.0.2",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.3",
+    "@vscode/test-cli": "^0.0.6",
+    "@vscode/test-electron": "^2.3.9"
+  }
+}
