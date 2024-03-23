@@ -1,8 +1,6 @@
-# Change Log
+# change log
 
-## [Unreleased]
-
-- initial release
+## 1.0.0 - initial release
 - added the following commands
   - `waypoints.addMarker`: adds a marker to the waypoints file, with the current file, line and column.
   - `waypoints.openTeleporter`: opens a waypoint picker to teleport to a marker.
