@@ -9,6 +9,11 @@
   "categories": [
     "Other"
   ],
+  "publisher": "raxel",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/raxelo/vscode-waypoints?tab=readme-ov-file"
+  },
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
@@ -69,7 +74,9 @@
     "watch": "tsc -watch -p ./",
     "pretest": "pnpm run compile && pnpm run lint",
     "lint": "eslint src --ext ts",
-    "test": "vscode-test"
+    "test": "vscode-test",
+    "package": "pnpm vsce package --no-dependencies",
+    "publish": "pnpm vsce publish --no-dependencies"
   },
   "devDependencies": {
     "@types/vscode": "^1.87.0",
