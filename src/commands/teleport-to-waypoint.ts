@@ -1,6 +1,6 @@
 import { ExtensionContext, commands, window } from 'vscode';
 import { teleportTo } from '../teleporter/teleporter';
-import { getAllCoordinates } from '../registry/registry-manager';
+import { getAllWaypoints } from '../registry/registry-manager';
 
 export function TeleportToWaypointCommand(context: ExtensionContext) {
     const teleportCommands = [
@@ -17,14 +17,14 @@ export function TeleportToWaypointCommand(context: ExtensionContext) {
 
     const teleportCommandsDisposable = teleportCommands.map((command, idx) => {
         return commands.registerCommand(command, () => {
-            const coordinates = Array.from(getAllCoordinates());
-            const coordinate = coordinates[idx];
-            if (!coordinate) {
+            const waypoints = Array.from(getAllWaypoints());
+            const waypoint = waypoints[idx];
+            if (!waypoint) {
                 window.showErrorMessage('Waypoint not found.');
                 return;
             }
 
-            teleportTo(coordinate);
+            teleportTo(waypoint);
         });
     });
 

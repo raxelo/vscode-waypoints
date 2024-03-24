@@ -1,6 +1,6 @@
 import { ExtensionContext, commands, window } from 'vscode';
-import { getEditorCoordinate } from '../coordinate/coordinate';
-import { addCoordinate } from '../registry/registry-manager';
+import { getEditorLocation } from '../waypoint/waypoint';
+import { addWaypoint } from '../registry/registry-manager';
 import { saveRegistry } from '../registry/registry-loader';
 
 export function AddMarkerCommand(context: ExtensionContext) {
@@ -9,8 +9,8 @@ export function AddMarkerCommand(context: ExtensionContext) {
             return;
         }
 
-        const coordinate = getEditorCoordinate(window.activeTextEditor);
-        addCoordinate(coordinate);
+        const waypoint = getEditorLocation(window.activeTextEditor);
+        addWaypoint(waypoint);
         saveRegistry(context);
     });
 

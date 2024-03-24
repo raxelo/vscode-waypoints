@@ -1,31 +1,31 @@
-import { Coordinate } from '../coordinate/coordinate';
+import { Waypoint } from '../waypoint/waypoint';
 
 // String following this format: `${filePath}:${lineNumber}`
-// Example: `src/coordinate/coordinate.ts:5`
-type CoordinateKey = `${string}:${number}`;
+// Example: `src/waypoint/waypoint.ts:5`
+type WaypointKey = `${string}:${number}`;
 
-const coordinatesRegistry: Map<CoordinateKey, Coordinate> = new Map();
+const waypointRegistry: Map<WaypointKey, Waypoint> = new Map();
 
 /**
- * Generates a unique key for a coordinate.
+ * Generates a unique key for a waypoint.
  * Ignores the column number.
  */
-function coordinateKey(coordinate: Coordinate): CoordinateKey {
-    return `${coordinate.filePath}:${coordinate.lineNumber}`;
+function generateWaypointKey(waypoint: Waypoint): WaypointKey {
+    return `${waypoint.filePath}:${waypoint.lineNumber}`;
 }
 
 export function clearRegistry() {
-    coordinatesRegistry.clear();
+    waypointRegistry.clear();
 }
 
-export function addCoordinate(coordinate: Coordinate) {
-    coordinatesRegistry.set(coordinateKey(coordinate), coordinate);
+export function addWaypoint(waypoint: Waypoint) {
+    waypointRegistry.set(generateWaypointKey(waypoint), waypoint);
 }
 
-export function removeCoordinate(coordinate: Coordinate) {
-    coordinatesRegistry.delete(coordinateKey(coordinate));
+export function removeWaypoint(waypoint: Waypoint) {
+    waypointRegistry.delete(generateWaypointKey(waypoint));
 }
 
-export function getAllCoordinates() {
-    return coordinatesRegistry.values();
+export function getAllWaypoints() {
+    return waypointRegistry.values();
 }

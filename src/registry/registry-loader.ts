@@ -1,16 +1,16 @@
 import { ExtensionContext } from 'vscode';
 import fs from 'fs';
 import path from 'path';
-import { addCoordinate, clearRegistry, getAllCoordinates } from './registry-manager';
-import { Coordinate } from '../coordinate/coordinate';
+import { addWaypoint, clearRegistry, getAllWaypoints } from './registry-manager';
+import { Waypoint } from '../waypoint/waypoint';
 
 const mapFilePath = 'registry.txt';
 
-function coordinateToLine(coordinate: Coordinate): string {
-    return `${coordinate.filePath}:${coordinate.lineNumber}:${coordinate.columnNumber}`;
+function waypointToLine(waypoint: Waypoint): string {
+    return `${waypoint.filePath}:${waypoint.lineNumber}:${waypoint.columnNumber}`;
 }
 
-function lineToCoordinate(line: string): Coordinate {
+function lineToWaypoint(line: string): Waypoint {
     const [filePath, lineNumber, columnNumber] = line.split(':');
     return {
         filePath,
@@ -20,11 +20,11 @@ function lineToCoordinate(line: string): Coordinate {
 }
 
 export function saveRegistry(context: ExtensionContext) {
-    const coordinates = getAllCoordinates();
+    const waypoints = getAllWaypoints();
     const fileContent = [];
 
-    for (const coordinate of coordinates) {
-        const line = coordinateToLine(coordinate);
+    for (const waypoint of waypoints) {
+        const line = waypointToLine(waypoint);
         fileContent.push(line);
     }
 
@@ -45,9 +45,9 @@ export function loadRegistry(context: ExtensionContext) {
     clearRegistry();
 
     for (const line of lines) {
-        const coordinate = lineToCoordinate(line);
-        if (coordinate.filePath && !isNaN(coordinate.lineNumber) && !isNaN(coordinate.columnNumber)) {
-            addCoordinate(coordinate);
+        const waypoint = lineToWaypoint(line);
+        if (waypoint.filePath && !isNaN(waypoint.lineNumber) && !isNaN(waypoint.columnNumber)) {
+            addWaypoint(waypoint);
         }
     }
 }

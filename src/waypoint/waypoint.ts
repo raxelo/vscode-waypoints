@@ -1,12 +1,12 @@
 import { TextEditor } from 'vscode';
 
-export type Coordinate = {
+export type Waypoint = {
     filePath: string;
     lineNumber: number;
     columnNumber: number;
 };
 
-export function getEditorCoordinate(editor: TextEditor): Coordinate {
+export function getEditorLocation(editor: TextEditor): Waypoint {
     return {
         filePath: editor.document.fileName,
         lineNumber: editor.selection.active.line,

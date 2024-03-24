@@ -22,7 +22,25 @@
   "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
+    "configuration": {
+      "title": "Waypoints",
+      "properties": {
+        "waypoints.scrollToWaypoint": {
+          "type": "boolean",
+          "default": true,
+          "description": "Scroll to waypoint position when teleporting"
+        }
+      }
+    },
     "commands": [
+      {
+        "command": "waypoints.circleForwards",
+        "title": "waypoints > teleport to next waypoint"
+      },
+      {
+        "command": "waypoints.circleBackwards",
+        "title": "waypoints > teleport to previous waypoint"
+      },
       {
         "command": "waypoints.addMarker",
         "title": "waypoints > add marker"

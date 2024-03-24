@@ -1,14 +1,14 @@
 import { ExtensionContext, QuickPickItem, commands, window } from 'vscode';
-import { getAllCoordinates } from '../registry/registry-manager';
+import { getAllWaypoints } from '../registry/registry-manager';
 import { teleportTo } from '../teleporter/teleporter';
 
 export function OpenTeleporterCommand(context: ExtensionContext) {
     const disposable = commands.registerCommand('waypoints.openTeleporter', () => {
-        const coordinates = Array.from(getAllCoordinates());
-        const quickPickItems: QuickPickItem[] = coordinates.map((coordinate, idx) => {
+        const waypoints = Array.from(getAllWaypoints());
+        const quickPickItems: QuickPickItem[] = waypoints.map((waypoint, idx) => {
             return {
                 label: `Waypoint ${idx}`,
-                detail: coordinate.filePath + ':' + (coordinate.lineNumber + 1)
+                detail: waypoint.filePath + ':' + (waypoint.lineNumber + 1)
             };
         });
 
@@ -20,8 +20,8 @@ export function OpenTeleporterCommand(context: ExtensionContext) {
             }
 
             const idx = quickPickItems.indexOf(selection);
-            const coordinate = coordinates[idx];
-            teleportTo(coordinate);
+            const waypoint = waypoints[idx];
+            teleportTo(waypoint);
         });
     });
 
