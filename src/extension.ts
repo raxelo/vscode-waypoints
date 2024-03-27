@@ -6,6 +6,7 @@ import { AddMarkerCommand } from './commands/add-marker';
 import { OpenTeleporterCommand } from './commands/open-teleporter';
 import { TeleportToWaypointCommand } from './commands/teleport-to-waypoint';
 import { ViewMapCommand } from './commands/view-map';
+import { CircleBackwardsCommand, CircleForwardsCommand } from './commands/circle-commands';
 
 // This method is called when your extension is activated
 // Your extension is activated the very first time the command is executed
@@ -17,7 +18,9 @@ export function activate(context: vscode.ExtensionContext) {
 		AddMarkerCommand,
 		OpenTeleporterCommand,
 		TeleportToWaypointCommand,
-		ViewMapCommand
+		ViewMapCommand,
+		CircleBackwardsCommand,
+		CircleForwardsCommand
 	];
 
 	commands.forEach((registerCommand) => {

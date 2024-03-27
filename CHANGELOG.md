@@ -1,5 +1,13 @@
 # change log
 
+## 1.0.4 - general improvements
+- improved teleporter file descriptions for relative paths
+- added setting to prevent teleporter from scrolling:
+  - `waypoints.scrollToWaypoint`
+- added commands to circle through waypoints:
+  - `waypoints.circleForwards`
+  - `waypoints.circleBackwards`
+
 ## 1.0.3 - icon
 - added an icon to the extension
 
